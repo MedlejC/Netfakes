@@ -27,18 +27,26 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     <div className="row">
       <h2>{title}</h2>
 
-      {/* Iterate through the movies and return {something}*/}
-      {movies.map((movie) => (
-        <img
-          className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-          // Good practice: whenever we are rendering multiple things,
-          // always pass a key
-          key={movie.id}
-          src={`${base_url}${
-            isLargeRow ? movie.poster_path : movie.backdrop_path
-          }`}
-        />
-      ))}
+      <div className="row__posters">
+        {/* Iterate through the movies and return {something}*/}
+        {movies.map(
+          (movie) =>
+            // Checks (before rendering) for corrupted links - we don't want them
+
+            ((isLargeRow && movie.poster_path) ||
+              (!isLargeRow && movie.backdrop_path)) && (
+              <img
+                className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                // Good practice: whenever we are rendering multiple things,
+                // always pass a key
+                key={movie.id}
+                src={`${base_url}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+              />
+            )
+        )}
+      </div>
     </div>
   );
 }
