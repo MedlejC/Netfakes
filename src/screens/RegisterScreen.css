@@ -1,0 +1,51 @@
+.registerScreen {
+    max-width: 300px;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.67);
+    border-radius: 10%;
+  }
+  .registerScreen > form > h1{
+      margin-bottom: 20px;
+  }
+  
+  .registerScreen > form {
+    display: grid;
+    flex-direction: column;
+  }
+  
+  .registerScreen > form > input {
+      outline-width: 0;
+      height: 40px;
+      margin-bottom: 14px;
+      border-radius: 0.4vw;
+      border-radius: none;
+      padding: 5px 15px;
+      transition: transform 450ms;
+  }
+  
+  .registerScreen > form > input:active{
+      background-color: #79a6dd;
+      transform: scale(1.02);
+      transition: all 0.5s;
+  }
+  
+  .registerScreen > form > button {
+      padding: 16px 20px;
+      font-size: 1rem;
+      color: #111;
+      border-radius: 0.4vw;
+      background-color: #3b8df0;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      transition: transform 450ms;
+  }
+  .registerScreen > form > button:hover{
+      transform: scale(1.08);
+      transition: all 0.5s;
+  }
+  
