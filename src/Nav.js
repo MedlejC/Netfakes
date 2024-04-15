@@ -24,7 +24,7 @@ function Nav() {
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <div className="nav__contents">
-        <img className="nav__logo" src={logo} />
+        <img className="nav__logo" src={logo} onClick={() => navigate("/")} />
         <img
           className="nav__avatar"
           src={avatar}
