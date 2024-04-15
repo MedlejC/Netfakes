@@ -11,8 +11,6 @@
   margin-left: 0;
   margin-right: 0;
   z-index: 1;
-  /* left: 50%;
-    transform: translate(-50%, -50%); */
   text-align: center;
   color: white;
   padding: 20px;
@@ -37,6 +35,7 @@
 
 .loginScreen__body > h3 {
   font-size: 1.3rem;
+  margin-top: 10px;
   font-weight: 400;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
     1px 1px 0 black;
