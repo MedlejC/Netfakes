@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { login, logout, selectUser } from "./features/userSlice";
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   // Add persitence to user login
   // (remember that they are signed in)
@@ -19,8 +23,15 @@ function App() {
         // if userAuth true/exists
         // => Logged in
         console.log(userAuth);
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
       } else {
         // => Logged out
+        dispatch(logout);
       }
     });
     // Cleanup function:
