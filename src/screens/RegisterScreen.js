@@ -1,8 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./RegisterScreen.css";
 import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function RegisterScreen({ email }) {
+  const [emailValue, setEmailValue] = useState(email);
+
   // Reference to a field: it's like a finger pointing to an HTML element
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -13,11 +16,11 @@ function RegisterScreen({ email }) {
     e.preventDefault();
 
     // Pass in the email and password entered in the form
-    auth
-      .createUserWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
+    createUserWithEmailAndPassword(
+      auth,
+      emailRef.current.value,
+      passwordRef.current.value
+    )
       .then((authUser) => {
         console.log(authUser);
       })
@@ -30,7 +33,13 @@ function RegisterScreen({ email }) {
     <div className="registerScreen">
       <form>
         <h1>Create Your Account</h1>
-        <input placeholder="Email" type="email" value={email} ref={emailRef} />
+        <input
+          placeholder="Email"
+          type="email"
+          value={emailValue}
+          onChange={(e) => setEmailValue(e.target.value)}
+          ref={emailRef}
+        />
         <input placeholder="Password" type="password" ref={passwordRef} />
         <button type="submit" onClick={register}>
           Register
