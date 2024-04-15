@@ -3,6 +3,7 @@ import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from './screens/LoginScreen'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignInScreen from "./screens/SignInScreen";
 
 function App() {
   const user = null;
@@ -16,7 +17,6 @@ function App() {
           // Otherwise, render the project
           <Routes>
             <Route exact path="/" element={<HomeScreen />} />
-            <Route path="/test" element={<h1>Test</h1>} />
           </Routes>
         )}
       </Router>
