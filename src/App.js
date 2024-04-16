@@ -32,12 +32,12 @@ function App() {
         );
       } else {
         // => Logged out
-        dispatch(logout);
+        dispatch(logout());
       }
     });
     // Cleanup function:
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
   return (
     <div className="app">
       <Router>
