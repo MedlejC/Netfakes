@@ -1,3 +1,11 @@
+.plansScreen > p {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .plansScreen__plan {
   display: flex;
   justify-content: space-between;
@@ -20,4 +28,14 @@
   font-weight: 600;
   border: none;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .plansScreen__plan > button {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+.plansScreen__plan--disabled > button {
+  background-color: gray;
 }
