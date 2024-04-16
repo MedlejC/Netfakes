@@ -1,46 +1,61 @@
-# Getting Started with Create React App and Redux
+<img src="./README_assets/netfakes_logo.png"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# NetFakes: A Dynamic Netflix Clone
 
-## Available Scripts
+## Live Link
 
-In the project directory, you can run:
+[Visit NetFakes](https://netfakes-d4679.web.app/) - Dive into the project and have fun!
 
-### `npm start`
+## Project Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+NetFakes is a full-fledged Netflix clone built to demonstrate advanced web development skills. This project mimics the core functionalities of Netflix, featuring user authentication, subscription management, and a responsive, intuitive UI. Users can sign up, choose subscription plans, and browse through a variety of media offerings just like they would on Netflix.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&labelColor=black) ![Static Badge](https://img.shields.io/badge/JavaScript-%23F7DF1E?style=for-the-badge&logo=javascript&labelColor=black)
 
-### `npm run build`
+- **State Management:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ![Static Badge](https://img.shields.io/badge/Redux-%23764ABC?style=for-the-badge&logo=redux&labelColor=black)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Backend:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ![Static Badge](https://img.shields.io/badge/firebase-%23FFCA28?style=for-the-badge&logo=firebase&labelColor=black)
 
-### `npm run eject`
+- **Payment Processing:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ![Static Badge](https://img.shields.io/badge/stripe-%23008CDD?style=for-the-badge&logo=stripe&labelColor=black)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Guide
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Register using any email and password (secure authentication through Firebase).
+- You're in!
+- Subscribe to any plan (DO NOT use real credit cards).
+  Follow on-screen instructions for a successful subscription.
+- Enjoy!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Showcase
 
-## Learn More
+<img src="./README_assets/signed_out_screen.png"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_NetFakes Home Screen - Signed Out_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br/>
+
+<img src="./README_assets/signed_in_screen.png"/>
+
+_NetFakes Home Screen - Signed In_
+
+<br/>
+
+<img src="./README_assets/plans.png"/>
+
+_Choosing a Subscription Plan_
+
+<br/>
+
+<img src="./README_assets/stripe_payment.png"/>
+
+_Stripe Payment Checkout_
