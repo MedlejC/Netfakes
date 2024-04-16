@@ -21,3 +21,9 @@
   border: none;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .plansScreen__plan > button {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+}

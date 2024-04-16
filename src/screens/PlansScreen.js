@@ -1,11 +1,22 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import db from "../firebase";
 import "./PlansScreen.css";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
 
 function PlansScreen() {
   const [products, setProducts] = useState([]);
-
+  const user = useSelector(selectUser);
   useEffect(() => {
     const fetchProducts = async () => {
       const q = query(collection(db, "products"), where("active", "==", true));
@@ -19,26 +30,59 @@ function PlansScreen() {
         // Fetch prices within the product document
         getDocs(collection(productDoc.ref, "prices")).then((priceSnap) => {
           priceSnap.docs.forEach((price) => {
-            productsObj[productId] = {
-              ...productData,
-              prices: {
-                priceId: price.id,
-                priceData: price.data(),
+            const newProduct = {
+              [productId]: {
+                ...productData,
+                prices: {
+                  priceId: price.id,
+                  priceData: price.data(),
+                },
               },
             };
+
+            // Use functional update to ensure the state includes all products
+            setProducts((prevProducts) => ({
+              ...prevProducts,
+              ...newProduct,
+            }));
           });
-          setProducts(productsObj);
         });
       });
     };
 
     fetchProducts();
   }, []);
-
   console.log(products);
 
-  const loadCheckout = async (priceId) => {};
+  const loadCheckout = async (priceId) => {
+    // Create a reference to the checkout_sessions collection under the specific user
+    const sessionCollectionRef = collection(
+      doc(db, "customers", user.uid),
+      "checkout_sessions"
+    );
 
+    // Add the new document in the sessionCollectionRef
+    const docRef = await addDoc(sessionCollectionRef, {
+      price: priceId,
+      success_url: window.location.origin,
+      cancel_url: window.location.origin,
+    });
+
+    // Attach the snapshot listener to the newly created document reference
+    onSnapshot(docRef, async (snap) => {
+      const { error, sessionId } = snap.data();
+      if (error) {
+        alert(`An error occurred: ${error.message}`);
+      }
+      if (sessionId) {
+        // Redirect to Checkout
+        const stripe = await loadStripe(
+          "pk_test_51P5vp8KqaLd8JU0Wpkk7ci92QbiZk5qXAgJzn5dvIEVXnWNzIgENqBgnszqUhEQEVxQpzEMm5uhISOXC72OOkvBW00PUfa9heL"
+        );
+        stripe.redirectToCheckout({ sessionId });
+      }
+    });
+  };
   return (
     <div className="plansScreen">
       {Object.entries(products).map(([productId, productData]) => {
