@@ -1,16 +1,18 @@
 .profileScreen {
   height: 100vh;
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+.profileScreen__nav {
+  background-color: yellow;
 }
 
 .profileScreen__body {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 8%;
+  width: 90%;
+  margin: 5% auto;
   max-width: 800px;
+  flex: 1;
 }
 
 .profileScreen__body > h1 {
@@ -18,20 +20,43 @@
   font-weight: 400;
   border-bottom: 1px solid #282c2d;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .profileScreen__info {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .profileScreen__info > img {
-  height: 100px;
+  max-width: 100px;
+  height: auto;
 }
 
 .profileScreen__details {
-  color: white;
   margin-left: 25px;
   flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .profileScreen__body {
+    width: 100%;
+    margin-top: 20%;
+  }
+
+  .profileScreen__info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profileScreen__info > img {
+    margin-bottom: 20px;
+  }
+
+  .profileScreen__details > h2 {
+    text-align: center;
+  }
 }
 
 .profileScreen__details > h2 {

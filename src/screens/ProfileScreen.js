@@ -13,7 +13,9 @@ function ProfileScreen() {
   const user = useSelector(selectUser);
   return (
     <div className="profileScreen">
-      <Nav />
+      <div className="profileScreen__nav">
+        <Nav />
+      </div>
       <div className="profileScreen__body">
         <h1>Edit Profile</h1>
         <div className="profileScreen__info">

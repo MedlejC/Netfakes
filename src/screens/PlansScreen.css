@@ -1,3 +1,9 @@
+.plansScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .plansScreen > p {
   display: flex;
   margin-top: 20px;
@@ -7,11 +13,10 @@
 }
 
 .plansScreen__plan {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  width: 80%;
   opacity: 0.8;
-  transition: transform 450ms;
+  transition: all 0.3s ease;
+  padding: 10px;
 }
 
 .plansScreen__plan:hover {
@@ -29,13 +34,47 @@
   border: none;
   cursor: pointer;
 }
+.plansScreen__info > h5 {
+  margin-bottom: 2px;
+}
+
+.plansScreen__info > h6 {
+  margin-bottom: 4px;
+}
 @media screen and (max-width: 768px) {
+  .plansScreen__plan {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .plansScreen__plan > button {
-    padding: 5px 10px;
-    font-size: 0.7rem;
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .plansScreen__plan--disabled > button {
+    background-color: #b0b0b0;
   }
 }
 
 .plansScreen__plan--disabled > button {
   background-color: gray;
+}
+
+@media screen and (min-width: 769px) {
+  .plansScreen__plan {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 10px auto;
+  }
+
+  .plansScreen__plan > button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .plansScreen__plan--disabled > button {
+    background-color: gray;
+  }
 }

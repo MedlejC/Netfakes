@@ -6,8 +6,8 @@
   background: rgba(0, 0, 0, 0.67);
   border-radius: 10%;
 }
-.signInScreen > form > h1{
-    margin-bottom: 20px;
+.signInScreen > form > h1 {
+  margin-bottom: 20px;
 }
 
 .signInScreen > form {
@@ -16,44 +16,44 @@
 }
 
 .signInScreen > form > input {
-    outline-width: 0;
-    height: 40px;
-    margin-bottom: 14px;
-    border-radius: 0.4vw;
-    border-radius: none;
-    padding: 5px 15px;
-    transition: transform 450ms;
+  outline-width: 0;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 15px;
+  transition: transform 450ms;
 }
 
-.signInScreen > form > input:active{
-    background-color: #79a6dd;
-    transform: scale(1.02);
-    transition: all 0.5s;
+.signInScreen > form > input:active {
+  background-color: #79a6dd;
+  transform: scale(1.02);
+  transition: all 0.5s;
 }
 
 .signInScreen > form > button {
-    padding: 16px 20px;
-    font-size: 1rem;
-    color: #111;
-    border-radius: 0.4vw;
-    background-color: #3b8df0;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    transition: transform 450ms;
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #111;
+  border-radius: 10px;
+  background-color: #3b8df0;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  transition: transform 450ms;
 }
-.signInScreen > form > button:hover{
-    transform: scale(1.08);
-    transition: all 0.5s;
+.signInScreen > form > button:hover {
+  transform: scale(1.08);
+  transition: all 0.5s;
 }
 
 .signInScreen__gray {
-    color: gray;
+  color: gray;
 }
 
-.signInScreen__register:hover{
-    cursor: pointer;
-    text-decoration: underline;
+.signInScreen__register:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
