@@ -34,6 +34,10 @@ NetFakes is a full-fledged Netflix clone built to demonstrate advanced web devel
 - You're in!
 - Subscribe to any plan (DO NOT use real credit cards).
   Follow on-screen instructions for a successful subscription.
+	- To simulate a successful payment:
+		- Visa: 4242424242424242
+		- Date: Any future date
+		- CVC: Any 3 digits
 - Enjoy!
 
 ## Showcase
